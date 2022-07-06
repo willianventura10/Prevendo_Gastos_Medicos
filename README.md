@@ -4,7 +4,7 @@
 # Índice
 * [Sobre o Projeto](#computer-sobre-o-projeto)
 * [Descrição Geral do Problema](#gear-descrição-geral-do-problema)
-* [Becoming familiar](#mag_right-becoming-familiar)
+* [Familiarizando-se com o Dataset](#mag-familiarizando-se-com-o-dataset)
   * [Business problem](#business-problem)
   * [Solution planning](#solution-planning)
   * [3 relevant insights](#3-relevant-insights)
@@ -19,7 +19,7 @@
 * [Author](#superhero-author)
 
 ## :computer: Sobre o Projeto
-O objetivo deste projeto é praticar o conhecimento adquirido em Machine Learning. Trata-se de 
+O objetivo deste projeto é praticar o conhecimento adquirido em Machine Learning.
 
 ## :gear: Descrição Geral do Problema
 Para que uma companhia de seguros de saúde possa auferir lucros, ela precisa recolher mais
@@ -32,5 +32,9 @@ o câncer de pulmão é mais provável entre fumantes do que não-fumantes e doe
 ser mais prováveis entre os obesos. O objetivo desta análise é usar os dados de pacientes para estimar 
 as despesas médias de assistência médica a esses segmentos da população. Estas estimativas podem ser utilizadas
 para criar tabelas que estabelecem os preços dos prêmios anuais maiores ou menores, dependendo dos custos de tratamento previsto.
+
+## :mag: Familiarizando-se com o Dataset
+Para o desenvolvimento do Projeto foram utilizados dados de 1338 segurados, considerando as seguintes caracterísicas: idade, sexo, 
+índice de massa corporal (bmi), número de filhos, se é fumante ou não, e o total anual gasto com despesas médicas.
 
 

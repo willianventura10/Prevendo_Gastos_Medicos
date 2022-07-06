@@ -5,7 +5,7 @@
 * [Sobre o Projeto](#computer-sobre-o-projeto)
 * [Descrição Geral do Problema](#gear-descrição-geral-do-problema)
 * [Familiarizando-se com o Dataset](#mag-familiarizando-se-com-o-dataset)
-  * [Problema e suposições de negócio (Hipóteses iniciais)](#problema-e-suposições-de-negócio-(Hipóteses iniciais))
+  * [Suposições de negócio](#suposições-de-negócio)
   * [Solution planning](#solution-planning)
   * [3 relevant insights](#3-relevant-insights)
   * [Financial results](#financial-results)
@@ -37,9 +37,9 @@ para criar tabelas que estabelecem os preços dos prêmios anuais maiores ou men
 Para o desenvolvimento do Projeto foram utilizados dados de 1338 segurados, considerando as seguintes caracterísicas: idade, sexo, 
 índice de massa corporal (bmi), número de filhos, se é fumante ou não, e o total anual gasto com despesas médicas.
 
-![image](Imagens/IMG2.jpg) 
+![image](Imagens/IMG22.jpg) 
 
-- [x] **Problema e suposições de negócio (Hipóteses iniciais)**: states the business questions to be answered along the analysis.
+- [x] **Suposições de negócio**: states the business questions to be answered along the analysis.
 
 
 

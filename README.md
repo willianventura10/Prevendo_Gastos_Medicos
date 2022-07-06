@@ -6,7 +6,7 @@
 * [Descrição Geral do Problema](#gear-descrição-geral-do-problema)
 * [Familiarizando-se com o Dataset](#mag-familiarizando-se-com-o-dataset)
   * [Suposições de negócio](#suposições-de-negócio)
-  * [Solution planning](#solution-planning)
+  * [Exploração inicial dos dados](#exploração-inicial-dos-dados)
   * [3 relevant insights](#3-relevant-insights)
   * [Financial results](#financial-results)
   * [Conclusion](#conclusion)
@@ -39,8 +39,11 @@ Para o desenvolvimento do Projeto foram utilizados dados de 1338 segurados, cons
 
 ![image](Imagens/IMG22.jpg) 
 
-- [x] **Suposições de negócio**: states the business questions to be answered along the analysis.
+- [x] **Suposições de negócio**: Trabalharemos inicialmente com a hipótese de que algumas caractéricas dos segurados, como ser fumante e/ou 
+possuir um alto índice de massa corporal estão diretamente vinculadas aos gastos anuais com saúde.
+- [x] **Exploração inicial dos dados**: Resumo estatístico, Tipos de variáveis e se há valores 'missing'.
 
+![image](Imagens/IMG3.jpg) 
 
 
 

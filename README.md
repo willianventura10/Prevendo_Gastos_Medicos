@@ -19,7 +19,7 @@
 * [Author](#superhero-author)
 
 ## :computer: Sobre o Projeto
-O objetivo deste projeto é praticar o conhecimento adquirido em Machine Learning.
+O objetivo deste projeto é praticar o conhecimento adquirido em Machine Learning. Foi utilizada linguagem R (versão 4.2.0) juntamente com as biliotecas 'ggplot2' (versão 3.3.6) e 'corrplot' (versão 0.92).
 
 ## :gear: Descrição Geral do Problema
 Para que uma companhia de seguros de saúde possa auferir lucros, ela precisa recolher mais
@@ -36,5 +36,7 @@ para criar tabelas que estabelecem os preços dos prêmios anuais maiores ou men
 ## :mag: Familiarizando-se com o Dataset
 Para o desenvolvimento do Projeto foram utilizados dados de 1338 segurados, considerando as seguintes caracterísicas: idade, sexo, 
 índice de massa corporal (bmi), número de filhos, se é fumante ou não, e o total anual gasto com despesas médicas.
+
+![image](Imagens/IMG2.jpg) 
 
 

@@ -5,7 +5,7 @@
 * [Sobre o Projeto](#computer-sobre-o-projeto)
 * [Descrição Geral do Problema](#gear-descrição-geral-do-problema)
 * [Familiarizando-se com o Dataset](#mag-familiarizando-se-com-o-dataset)
-  * [Business problem](#business-problem)
+  * [Problema e suposições de negócio (Hipóteses iniciais)](#problema-e-suposições-de-negócio-(Hipóteses iniciais))
   * [Solution planning](#solution-planning)
   * [3 relevant insights](#3-relevant-insights)
   * [Financial results](#financial-results)
@@ -38,5 +38,11 @@ Para o desenvolvimento do Projeto foram utilizados dados de 1338 segurados, cons
 índice de massa corporal (bmi), número de filhos, se é fumante ou não, e o total anual gasto com despesas médicas.
 
 ![image](Imagens/IMG2.jpg) 
+
+- [x] **Problema e suposições de negócio (Hipóteses iniciais)**: states the business questions to be answered along the analysis.
+
+
+
+
 
 

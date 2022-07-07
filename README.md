@@ -19,7 +19,7 @@
 * [Author](#superhero-author)
 
 ## :computer: Sobre o Projeto
-O objetivo deste projeto é praticar o conhecimento adquirido em Machine Learning. Foi utilizada linguagem R (versão 4.2.0) juntamente com as biliotecas 'ggplot2' (versão 3.3.6) e 'corrplot' (versão 0.92).
+O objetivo deste projeto é praticar o conhecimento adquirido em Machine Learning. Para o desenvolvimento do projeto foi utilizada linguagem R (versão 4.2.0) juntamente com as bibliotecas 'ggplot2' (versão 3.3.6) e 'corrplot' (versão 0.92).
 
 ## :gear: Descrição Geral do Problema
 Para que uma companhia de seguros de saúde possa auferir lucros, ela precisa recolher mais
@@ -34,10 +34,8 @@ as despesas médias de assistência médica a esses segmentos da população. Es
 para criar tabelas que estabelecem os preços dos prêmios anuais maiores ou menores, dependendo dos custos de tratamento previsto.
 
 ## :mag: Familiarizando-se com o Dataset
-Para o desenvolvimento do Projeto foram utilizados dados de 1338 segurados, considerando as seguintes caracterísicas: idade, sexo, 
+Para o desenvolvimento do Projeto foram utilizados dados fictícios de 1338 segurados, considerando as seguintes caracterísicas: idade, sexo, 
 índice de massa corporal (bmi), número de filhos, se é fumante ou não, e o total anual gasto com despesas médicas.
-
-![image](Imagens/IMG22.jpg) 
 
 - [x] **Suposições de negócio**: Trabalharemos inicialmente com a hipótese de que algumas caractéricas dos segurados, como ser fumante e/ou 
 possuir um alto índice de massa corporal estão diretamente vinculadas aos gastos anuais com saúde.

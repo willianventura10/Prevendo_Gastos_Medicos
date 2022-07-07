@@ -19,7 +19,7 @@
 * [Author](#superhero-author)
 
 ## :computer: Sobre o Projeto
-O objetivo deste projeto é praticar o conhecimento adquirido em Machine Learning. Para o desenvolvimento do projeto foi utilizada linguagem R (versão 4.2.0) juntamente com as bibliotecas 'ggplot2' (versão 3.3.6) e 'corrplot' (versão 0.92).
+O objetivo deste projeto é praticar o conhecimento adquirido em Machine Learning. Para o desenvolvimento do projeto foi utilizada linguagem R (versão 4.2.0) juntamente com as bibliotecas 'dplyr' (versão 1.0.9), 'ggplot2' (versão 3.3.6) e 'corrplot' (versão 0.92).
 
 ## :gear: Descrição Geral do Problema
 Para que uma companhia de seguros de saúde possa auferir lucros, ela precisa recolher mais
@@ -39,9 +39,27 @@ Para o desenvolvimento do Projeto foram utilizados dados fictícios de 1338 segu
 
 - [x] **Suposições de negócio**: Trabalharemos inicialmente com a hipótese de que algumas caractéricas dos segurados, como ser fumante e/ou 
 possuir um alto índice de massa corporal estão diretamente vinculadas aos gastos anuais com saúde.
-- [x] **Exploração inicial dos dados**: Resumo estatístico, Tipos de variáveis e se há valores 'missing'.
+- [x] **Exploração inicial dos dados**: Resumo estatístico, Tipos de variáveis e verificação se há valores 'missing'.
+
+![image](Imagens/IMG22.jpg)
 
 ![image](Imagens/IMG3.jpg) 
+
+- [x] **Pré-Processamento**: 
+
+Substituindo 'sim' e 'nao' por 2 e 1 respectivamente na coluna 'fumante'.
+```
+df$fumante = recode_factor(df$fumante,"sim" = "2")
+df$fumante = recode_factor(df$fumante,"nao" = "1")
+df$fumante = as.numeric(df$fumante)
+```
+Obtendo e filtrando apenas as colunas numéricas para correlacão.
+```
+colunas_numericas <- sapply(df, is.numeric)
+data_cor <- cor(df[,colunas_numericas])
+```
+
+
 
 
 

@@ -19,7 +19,7 @@
 * [Author](#superhero-author)
 
 ## :computer: Sobre o Projeto
-O objetivo deste projeto é praticar o conhecimento adquirido em Machine Learning. Para o desenvolvimento do projeto foi utilizada linguagem R (versão 4.2.0) juntamente com as bibliotecas 'dplyr' (versão 1.0.9), 'ggplot2' (versão 3.3.6) e 'corrplot' (versão 0.92).
+O objetivo deste projeto é praticar o conhecimento adquirido em Machine Learning. Para o desenvolvimento do projeto foi utilizada linguagem R (versão 4.2.0) juntamente com as bibliotecas 'dplyr' (versão 1.0.9), 'ggplot2' (versão 3.3.6), 'corrplot' (versão 0.92) e 'caTools' (versão 1.18.2). 
 
 ## :gear: Descrição Geral do Problema
 Para que uma companhia de seguros de saúde possa auferir lucros, ela precisa recolher mais
@@ -47,10 +47,9 @@ possuir um alto índice de massa corporal estão diretamente vinculadas aos gast
 
 - [x] **Pré-Processamento**: 
 
-Substituindo 'sim' e 'nao' por 2 e 1 respectivamente na coluna 'fumante'.
+Substituindo 'sim' e 'nao' por 1 e 0 respectivamente na coluna 'fumante'.
 ```
-df$fumante = recode_factor(df$fumante,"sim" = "2")
-df$fumante = recode_factor(df$fumante,"nao" = "1")
+df$fumante = ifelse(df$fumante == "sim",1,0)
 df$fumante = as.numeric(df$fumante)
 ```
 Obtendo e filtrando apenas as colunas numéricas para correlacão.
@@ -58,8 +57,11 @@ Obtendo e filtrando apenas as colunas numéricas para correlacão.
 colunas_numericas <- sapply(df, is.numeric)
 data_cor <- cor(df[,colunas_numericas])
 ```
+Tabela de correlação:
 
+![image](Imagens/IMG5.jpg)
 
+Como podemos observar, existe correlação entre a variável "gastos" e as demais variáveis, sendo a correlação com a variável "fumante" a mais forte. Isso confirma a hipótese inicial de que algumas características dos segurados podem influenciar em seu gasto anual com despesas médicas. 
 
 
 

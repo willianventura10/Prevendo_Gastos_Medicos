@@ -52,18 +52,104 @@ Substituindo 'sim' e 'nao' por 1 e 0 respectivamente na coluna 'fumante'.
 df$fumante = ifelse(df$fumante == "sim",1,0)
 df$fumante = as.numeric(df$fumante)
 ```
-Obtendo e filtrando apenas as colunas numéricas para correlacão.
+Obtendo e filtrando apenas as colunas numéricas para análise de correlacão.
 ```
 colunas_numericas <- sapply(df, is.numeric)
 data_cor <- cor(df[,colunas_numericas])
 ```
-Tabela de correlação:
+- [x] **Análise da Correlação entre as variáveis**: 
 
-![image](Imagens/IMG5.jpg)
+Matriz de Correlação:
 
-Como podemos observar, existe correlação entre a variável "gastos" e as demais variáveis, sendo a correlação com a variável "fumante" a mais forte. Isso confirma a hipótese inicial de que algumas características dos segurados podem influenciar em seu gasto anual com despesas médicas. 
+![image](Imagens/IMG5.jpeg)
 
+```
+corrplot(data_cor, method = 'color')
+```
 
+![image](Imagens/IMG4.jpeg)
 
+Como podemos observar, existe correlação entre a variável "gastos" e as demais variáveis, sendo a correlação com a variável "fumante" a mais forte. **Isso confirma a hipótese inicial de que algumas características dos segurados podem influenciar em seu gasto anual com despesas médicas.** 
 
+## :rocket: Solução do Problema
+Uma vez que concluímos as etapas de exploração dos dados e pré-processamento, confirmando ainda nossa hipótese inicial de que há correlação entre os atributos dos segurados e o seu gasto anual com despesas médicas, buscaremos agora uma solução para o problema inicialmente proposto: **estimar as despesas médias dos segurados com base nos seus atributos**. Para isso entendemos como necessária a construção de um modelo preditivo, neste caso utilizaremos a **Regressão Linear** para estimar os valores.
+
+### Construindo o Modelo 
+
+Criando as amostras de forma randomica
+```
+amostra <- sample.split(df$idade, SplitRatio = 0.70)
+```
+Criando dados de treino - 70% dos dados
+```
+treino = subset(df, amostra == TRUE)
+```
+Criando dados de teste - 30% dos dados
+```
+teste = subset(df, amostra == FALSE)
+```
+Gerando o Modelo com dados de treino (Usando todos os atributos)
+```
+modelo_v1 <- lm(gastos ~ ., treino)
+```
+
+Podemos observar que o modelo criado apresenta bom desempenho utilizando os dados de treino (tomando como parâmetro o R-squared).
+
+![image](Imagens/IMG7.jpeg)
+
+Obtendo os resíduos (diferenca entre os valores observados de uma variavel e seus valores previstos)
+```
+res <- residuals(modelo_v1)
+res <- as.data.frame(res)
+```
+
+Histograma dos resíduos
+```
+ggplot(res, aes(res)) +  
+  geom_histogram(bins = 20, 
+                 alpha = 0.5, fill = 'blue')
+```
+
+![image](Imagens/IMG8.jpeg)
+
+O Histograma acima nos mostra uma distribuicao normal, o que indica que a média entre os valores previstos e os valores observados é proximo de zero, o que é muito bom.
+
+### Testando e avaliando o Modelo 
+
+Fazendo as predições
+```
+prevendo_gastos <- predict(modelo_v1, teste)
+resultados <- cbind(prevendo_gastos, teste$gastos) 
+colnames(resultados) <- c('Previsto','Real')
+resultados <- as.data.frame(resultados)
+```
+
+Tratando os valores negativos
+```
+trata_zero <- function(x){
+  if  (x < 0){
+    return(0)
+  }else{
+    return(x)
+  }
+}
+resultados$Previsto <- sapply(resultados$Previsto, trata_zero)
+```
+
+Cálculo da raiz quadrada do erro quadrático médio
+```
+mse <- mean((resultados$Real - resultados$Previsto)^2)
+rmse <- mse^0.5
+```
+
+Cálculo do R-squared
+```
+SSE = sum((resultados$Previsto - resultados$Real)^2)
+SST = sum( (mean(df$gastos) - resultados$Real)^2)
+R2 = 1 - (SSE/SST)
+```
+
+![image](Imagens/IMG9.jpeg)
+
+Analisando as métricas calculadas, entendemos que o modelo apresenta bom desempenho nas predições. Sendo que o R-squared ajuda a avaliar o nivel de precisão modelo, quanto maior, melhor, sendo 1 o valor ideal.
 

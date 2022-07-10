@@ -116,7 +116,7 @@ O Histograma acima nos mostra uma distribuicao normal, o que indica que a média
 
 ### Testando e avaliando o Modelo 
 
-Fazendo as predições
+Fazendo as predições com os dados de teste
 ```
 prevendo_gastos <- predict(modelo_v1, teste)
 resultados <- cbind(prevendo_gastos, teste$gastos) 
@@ -142,7 +142,7 @@ mse <- mean((resultados$Real - resultados$Previsto)^2)
 rmse <- mse^0.5
 ```
 
-Cálculo do R-squared
+Cálculo do R-squared (O R² ajuda a avaliar o nivel de precisão do modelo, quanto maior, melhor, sendo 1 o valor ideal)
 ```
 SSE = sum((resultados$Previsto - resultados$Real)^2)
 SST = sum( (mean(df$gastos) - resultados$Real)^2)
@@ -151,5 +151,24 @@ R2 = 1 - (SSE/SST)
 
 ![image](Imagens/IMG9.jpeg)
 
-Analisando as métricas calculadas, entendemos que o modelo apresenta bom desempenho nas predições. Sendo que o R-squared ajuda a avaliar o nivel de precisão modelo, quanto maior, melhor, sendo 1 o valor ideal.
+Analisando as métricas calculadas acima, **concluímos que o modelo apresenta bom desempenho nas predições**. No entanto, é importante sempre avaliar se a performance apresentada pode ser melhorada, é o que faremos na próxima etapa do projeto!
+
+### Otimizando o Modelo
+
+Nesta etapa tentaremos otimizar a performance do Modelo construído. Antes de efetuar qualquer alteração, necessitamos analisar **dois** pontos importantes referentes às nossas variáveis preditoras (atributos dos segurados).
+
+1 - Idade: É notório que os gastos com saúde tendem a aumentar de maneira desproporcional para a população mais velha. Logo, é interessante acrescentar uma variável que nos permita separar o impacto linear e não linear da idade nos gastos. Isso pode ser feito criando a variável 'dade²' (idade ao quadrado).
+
+2 - Índice de massa corporal (BMI): Outra observação a ser feita é com relação às pessoas obesas (BMI >= 30), a obesidade pode ser um preditor importante para os gastos com saúde, uma vez que as pessoas obesas tendem a desenvolver mais doenças. Neste caso podemos acrescentar uma variável 'bmi30' que indique se o segurado é obeso ou não;
+
+3 - Variável fumante*bmi30
+
+Acrescentando variáveis 'idade2' e 'bmi30' aos dados de treino e teste
+
+```
+treino$idade2 <- (treino$idade)^2
+teste$idade2 <- (teste$idade)^2
+treino$bmi30 <- ifelse(treino$bmi >= 30, 1, 0)
+teste$bmi30 <- ifelse(teste$bmi >= 30, 1, 0)
+```
 

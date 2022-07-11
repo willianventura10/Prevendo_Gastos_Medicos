@@ -90,7 +90,7 @@ teste = subset(df, amostra == FALSE)
 ```
 Gerando o Modelo com dados de treino (Usando todos os atributos)
 ```
-modelo_v1 <- lm(gastos ~ ., treino)
+modelo_v1 <- lm(gastos ~ ., data = treino)
 ```
 
 Podemos observar que o modelo criado apresenta bom desempenho utilizando os dados de treino (tomando como parâmetro o R-squared).
@@ -155,20 +155,25 @@ Analisando as métricas calculadas acima, **concluímos que o modelo apresenta b
 
 ### Otimizando o Modelo
 
-Nesta etapa tentaremos otimizar a performance do Modelo construído. Antes de efetuar qualquer alteração, necessitamos analisar **dois** pontos importantes referentes às nossas variáveis preditoras (atributos dos segurados).
+Nesta etapa tentaremos otimizar a performance do Modelo construído. Antes de efetuar qualquer alteração precisamos analisar alguns pontos importantes referentes às nossas variáveis preditoras (atributos dos segurados).
 
-1 - Idade: É notório que os gastos com saúde tendem a aumentar de maneira desproporcional para a população mais velha. Logo, é interessante acrescentar uma variável que nos permita separar o impacto linear e não linear da idade nos gastos. Isso pode ser feito criando a variável 'dade²' (idade ao quadrado).
+1 - Idade: É notório que os gastos com saúde tendem a aumentar de maneira desproporcional para a população mais velha. Logo, é interessante acrescentar uma variável que nos permita separar o impacto linear e não linear da idade nos gastos. Isso pode ser feito criando a variável 'idade²' (idade ao quadrado).
 
-2 - Índice de massa corporal (BMI): Outra observação a ser feita é com relação às pessoas obesas (BMI >= 30), a obesidade pode ser um preditor importante para os gastos com saúde, uma vez que as pessoas obesas tendem a desenvolver mais doenças. Neste caso podemos acrescentar uma variável 'bmi30' que indique se o segurado é obeso ou não;
+2 - Índice de massa corporal (BMI): Outra observação a ser feita é com relação às pessoas obesas (BMI >= 30), a obesidade pode ser um preditor importante para os gastos com saúde, uma vez que as pessoas obesas tendem a desenvolver mais doenças. Neste caso podemos acrescentar uma variável 'bmi30' que indique se o segurado é obeso ou não (1 ou 0);
 
-3 - Variável fumante*bmi30
+3 - Uma vez que criamos a variável 'bmi30' que indica se o segurado é obeso ou não, e considerando que a variável 'fumante' é um forte preditor dos gastos (conforme análise da matriz de correlação na seção 'Familiarizando-se com o Dataset') podemos criar uma outra variável (cujo nome será 'fbmi30') que contemple os segurados que são obesos e ao mesmo tempo fumantes. Neste caso 'fbmi30' = bmi30*fumante, onde '1' indicará se as duas condições estão presentes e '0' se uma ou nenhuma das condições está presente.
 
-Acrescentando variáveis 'idade2' e 'bmi30' aos dados de treino e teste
-
+Acrescentando variáveis 'idade2', 'bmi30' e 'fbmi30' aos dados de treino e teste
 ```
 treino$idade2 <- (treino$idade)^2
 teste$idade2 <- (teste$idade)^2
 treino$bmi30 <- ifelse(treino$bmi >= 30, 1, 0)
 teste$bmi30 <- ifelse(teste$bmi >= 30, 1, 0)
+treino$fbmi30 <-treino$bmi30*treino$fumante
+teste$fbmi30 <-teste$bmi30*teste$fumante
 ```
 
+Criando Modelo Otimizado
+```
+modelo_v2 <- lm(gastos ~ ., data = treino)
+```

@@ -29,7 +29,7 @@ despesas médicas para a população segurada. As despesas médicas são difíce
 porque os tratamentos mais caros são raros e, aparentemente, ocorrem de maneira aleatória. 
 Ainda assim, algumas condições são mais comuns em certos segmentos da população. Por exemplo, 
 o câncer de pulmão é mais provável entre fumantes do que não-fumantes e doenças cardíacas podem 
-ser mais prováveis entre os obesos. O objetivo desta análise é usar os dados de pacientes para estimar 
+ser mais prováveis entre os obesos. O objetivo deste projeto é usar os dados de pacientes para estimar 
 as despesas médias de assistência médica a esses segmentos da população. Estas estimativas podem ser utilizadas
 para criar tabelas que estabelecem os preços dos prêmios anuais maiores ou menores, dependendo dos custos de tratamento previsto.
 
@@ -177,3 +177,26 @@ Criando Modelo Otimizado
 ```
 modelo_v2 <- lm(gastos ~ ., data = treino)
 ```
+
+![image](Imagens/IMG10.jpeg)
+
+Histograma dos resíduos
+```
+res2 <- residuals(modelo_v2)
+res2 <- as.data.frame(res2)
+ggplot(res2, aes(res2)) +  
+  geom_histogram(bins = 20, 
+                 alpha = 0.5, fill = 'blue')
+```
+
+![image](Imagens/IMG11.jpeg)
+
+Após repetir os passos de testagem e avaliação do Modelo Otimizado obtemos novamente as métricas:
+
+![image](Imagens/IMG12.jpeg)
+
+Como o podemos observar o Modelo Otimizado apresentou significativa melhora no desempenho das predições.
+
+### Conclusão e Considerações finais
+
+Após passar pelas etapas de exploração e pré-processamento dos dados, construção, treinamento e otimização do Modelo Preditivo, concluímos nosso trabalho, tendo encontrado através de um modelo baseado em Regressão Linear a solução para o problema proposto. As próximas etapas passariam pela entrega dos resultados às equipes responsáveis pelo desenvolvimento de alguma aplicação que receba novos dados, e baseada no modelo preditivo proposto, devolva as previsões em formato adequado. Obviamente que o modelo construído, mesmo otimizado, deve passar por ajustes finos e constantes melhorias, de modo a obter sempre o melhor desempenho.

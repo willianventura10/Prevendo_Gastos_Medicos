@@ -41,7 +41,14 @@ Para o desenvolvimento do Projeto foram utilizados dados fictícios de 1338 segu
 possuir um alto índice de massa corporal estão diretamente vinculadas aos gastos anuais com saúde.
 - [x] **Exploração inicial dos dados**: Resumo estatístico, Tipos de variáveis e verificação se há valores 'missing'.
 
+Primeiras linhas do 'dataset'
+
 ![image](Imagens/IMG22.jpg)
+
+Histograma da variável 'gastos'
+![image](Imagens/IMG21.jpg)
+
+Resumo estatístico
 
 ![image](Imagens/IMG3.jpg) 
 

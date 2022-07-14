@@ -74,7 +74,8 @@ Matriz de Correlação:
 corrplot(data_cor, method = 'color')
 ```
 
-![image](Imagens/IMG4.jpeg)
+<img src="Imagens/IMG4.jpeg" width="400" height="400">
+
 
 Como podemos observar, existe correlação entre a variável "gastos" e as demais variáveis, sendo a correlação com a variável "fumante" a mais forte. **Isso confirma a hipótese inicial de que algumas características dos segurados podem influenciar em seu gasto anual com despesas médicas.** 
 

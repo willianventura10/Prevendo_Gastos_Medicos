@@ -1,6 +1,9 @@
-<h1 align="left">Prevendo despesas Médicas 👩‍⚕️️🏥</h1>
+<h1 align="middle">Prevendo Despesas Médicas 👩‍⚕️️🏥</h1>
 
-![image](Imagens/IMG1.jpg)
+<p align="center">
+  <img src="Imagens/IMG1.jpg">
+</p>
+
 # Índice
 * [Sobre o Projeto](#computer-sobre-o-projeto)
 * [Descrição Geral do Problema](#gear-descrição-geral-do-problema)
@@ -19,10 +22,10 @@
 * [Author](#superhero-author)
 
 ## :computer: Sobre o Projeto
-O objetivo deste projeto é praticar o conhecimento adquirido em Machine Learning. Para o desenvolvimento do projeto foi utilizada linguagem R (versão 4.2.0) juntamente com as bibliotecas 'dplyr' (versão 1.0.9), 'ggplot2' (versão 3.3.6), 'corrplot' (versão 0.92) e 'caTools' (versão 1.18.2). 
+<td><p align=justify>O objetivo deste projeto é praticar o conhecimento adquirido em Machine Learning. Para o desenvolvimento do projeto foi utilizada linguagem R (versão 4.2.0) juntamente com as bibliotecas 'dplyr' (versão 1.0.9), 'ggplot2' (versão 3.3.6), 'corrplot' (versão 0.92) e 'caTools' (versão 1.18.2).</p></td>
 
 ## :gear: Descrição Geral do Problema
-Para que uma companhia de seguros de saúde possa auferir lucros, ela precisa recolher mais
+<td><p align=justify>Para que uma companhia de seguros de saúde possa auferir lucros, ela precisa recolher mais
 prêmios anuais do que gasta em cuidados médicos para os seus beneficiários. Como resultado,
 as seguradoras investem no desenvolvimento de modelos que possam prever com precisão as 
 despesas médicas para a população segurada. As despesas médicas são difíceis de estimar, 
@@ -31,26 +34,33 @@ Ainda assim, algumas condições são mais comuns em certos segmentos da popula�
 o câncer de pulmão é mais provável entre fumantes do que não-fumantes e doenças cardíacas podem 
 ser mais prováveis entre os obesos. O objetivo deste projeto é usar os dados de pacientes para estimar 
 as despesas médias de assistência médica a esses segmentos da população. Estas estimativas podem ser utilizadas
-para criar tabelas que estabelecem os preços dos prêmios anuais maiores ou menores, dependendo dos custos de tratamento previsto.
+para criar tabelas que estabelecem os preços dos prêmios anuais maiores ou menores, dependendo dos custos de tratamento previsto.</p></td>
 
 ## :mag: Familiarizando-se com o Dataset
-Para o desenvolvimento do Projeto foram utilizados dados fictícios de 1338 segurados, considerando as seguintes caracterísicas: idade, sexo, 
-índice de massa corporal (bmi), número de filhos, se é fumante ou não, e o total anual gasto com despesas médicas.
+<td><p align=justify>Para o desenvolvimento do Projeto foram utilizados dados fictícios de 1338 segurados, considerando as seguintes caracterísicas: idade, sexo, 
+índice de massa corporal (bmi), número de filhos, se é fumante ou não, e o total anual gasto com despesas médicas.</p></td>
 
 - [x] **Suposições de negócio**: Trabalharemos inicialmente com a hipótese de que algumas caractéricas dos segurados, como ser fumante e/ou 
 possuir um alto índice de massa corporal estão diretamente vinculadas aos gastos anuais com saúde.
 - [x] **Exploração inicial dos dados**: Resumo estatístico, Tipos de variáveis e verificação se há valores 'missing'.
-
-Primeiras linhas do 'dataset'
-
-![image](Imagens/IMG22.jpg)
-
-Histograma da variável 'gastos'
-![image](Imagens/IMG21.jpg)
-
-Resumo estatístico
-
-![image](Imagens/IMG3.jpg) 
+<p align="center">
+<i>Primeiras linhas do 'dataset'</i>
+</p>
+<p align="center">
+  <img src="Imagens/IMG22.jpg">
+</p>
+<p align="center">
+<i>Histograma da variável 'gastos'</i>
+</p>
+<p align="center">
+  <img src="Imagens/IMG21.jpg" width="600" height="300">
+</p>
+<p align="center">
+<i>Resumo estatístico</i>
+</p>
+<p align="center">
+  <img src="Imagens/IMG3.jpg" width="600" height="250">
+</p>
 
 - [x] **Pré-Processamento**: 
 
@@ -66,18 +76,22 @@ data_cor <- cor(df[,colunas_numericas])
 ```
 - [x] **Análise da Correlação entre as variáveis**: 
 
-Matriz de Correlação:
-
-![image](Imagens/IMG5.jpeg)
+<p align="center">
+<i>Matriz de Correlação</i>
+</p>
+<p align="center">
+  <img src="Imagens/IMG5.jpeg" width="500" height="130">
+</p>
 
 ```
 corrplot(data_cor, method = 'color')
 ```
 
-<img src="Imagens/IMG4.jpeg" width="400" height="400">
+<p align="center">
+  <img src="Imagens/IMG4.jpeg" width="400" height="400">
+</p>
 
-
-Como podemos observar, existe correlação entre a variável "gastos" e as demais variáveis, sendo a correlação com a variável "fumante" a mais forte. **Isso confirma a hipótese inicial de que algumas características dos segurados podem influenciar em seu gasto anual com despesas médicas.** 
+<td><p align=justify>Como podemos observar, existe correlação entre a variável "gastos" e as demais variáveis, sendo a correlação com a variável "fumante" a mais forte. <b>Isso confirma a hipótese inicial de que algumas características dos segurados podem influenciar em seu gasto anual com despesas médicas.</b></p></td>
 
 ## :rocket: Solução do Problema
 Uma vez que concluímos as etapas de exploração dos dados e pré-processamento, confirmando ainda nossa hipótese inicial de que há correlação entre os atributos dos segurados e o seu gasto anual com despesas médicas, buscaremos agora uma solução para o problema inicialmente proposto: **estimar as despesas médias dos segurados com base nos seus atributos**. Para isso entendemos como necessária a construção de um modelo preditivo, neste caso utilizaremos a **Regressão Linear** para estimar os valores.
@@ -207,4 +221,4 @@ Como o podemos observar o Modelo Otimizado apresentou significativa melhora no d
 
 ### Conclusão e Considerações finais
 
-Após passar pelas etapas de exploração e pré-processamento dos dados, construção, treinamento e otimização do Modelo Preditivo, concluímos nosso trabalho, tendo encontrado através de um modelo baseado em Regressão Linear a solução para o problema proposto. As próximas etapas passariam pela entrega dos resultados às equipes responsáveis pelo desenvolvimento de alguma aplicação que receba novos dados, e baseada no modelo preditivo proposto, devolva as previsões em formato adequado. Obviamente que o modelo construído, mesmo otimizado, deve passar por ajustes finos e constantes melhorias, de modo a obter sempre o melhor desempenho.
+Após passar pelas etapas de exploração e pré-processamento dos dados, construção, treinamento e otimização do Modelo Preditivo, concluímos nosso trabalho, tendo encontrado através de um modelo baseado em Regressão Linear a solução para o problema proposto, as próximas etapas passariam pela entrega dos resultados às equipes responsáveis pelo desenvolvimento e implantação de um sistema que receba novos dados, e baseada no modelo preditivo proposto, devolva as previsões em formato adequado. Tais informações seriam de extrema utilidade para os setores responsáveis pelo planejamento e gestão financeira da empresa. Obviamente que o modelo construído, mesmo otimizado, ainda passaria por ajustes finos e constantes melhorias, de modo a obter sempre o melhor desempenho.

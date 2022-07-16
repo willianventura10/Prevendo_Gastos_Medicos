@@ -19,7 +19,7 @@
 * [Autor](#superhero-autor)
 
 ## :computer: Sobre o Projeto
-<td><p align=justify>O objetivo deste projeto é praticar o conhecimento adquirido em Machine Learning. Para o desenvolvimento do projeto foi utilizada linguagem R (versão 4.2.0) juntamente com as bibliotecas 'dplyr' (versão 1.0.9), 'ggplot2' (versão 3.3.6), 'corrplot' (versão 0.92) e 'caTools' (versão 1.18.2).</p></td>
+<td><p align=justify>O objetivo deste projeto é praticar o conhecimento adquirido em Machine Learning. Neste projeto foi construído um Modelo Preditivo baseado em Regressão Linear para prever gastos médicos. Para o desenvolvimento do projeto foi utilizada linguagem R (versão 4.2.0) juntamente com as bibliotecas 'dplyr' (versão 1.0.9), 'ggplot2' (versão 3.3.6), 'corrplot' (versão 0.92) e 'caTools' (versão 1.18.2).</p></td>
 
 ## :gear: Descrição Geral do Problema
 <td><p align=justify>Para que uma companhia de seguros de saúde possa auferir lucros, ela precisa recolher mais

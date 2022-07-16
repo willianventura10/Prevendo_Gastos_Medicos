@@ -94,7 +94,7 @@ corrplot(data_cor, method = 'color')
 <td><p align=justify>Como podemos observar, existe correlação entre a variável "gastos" e as demais variáveis, sendo a correlação com a variável "fumante" a mais forte. <b>Isso confirma a hipótese inicial de que algumas características dos segurados podem influenciar em seu gasto anual com despesas médicas.</b></p></td>
 
 ## :rocket: Solução do Problema
-Uma vez que concluímos as etapas de exploração dos dados e pré-processamento, confirmando ainda nossa hipótese inicial de que há correlação entre os atributos dos segurados e o seu gasto anual com despesas médicas, buscaremos agora uma solução para o problema inicialmente proposto: **estimar as despesas médias dos segurados com base nos seus atributos**. Para isso entendemos como necessária a construção de um modelo preditivo, neste caso utilizaremos a **Regressão Linear** para estimar os valores.
+<td><p align=justify>Uma vez que concluímos as etapas de exploração dos dados e pré-processamento, confirmando ainda nossa hipótese inicial de que há correlação entre os atributos dos segurados e o seu gasto anual com despesas médicas, buscaremos agora uma solução para o problema inicialmente proposto: <b>estimar as despesas médias dos segurados com base nos seus atributos</b>. Para isso entendemos como necessária a construção de um modelo preditivo, neste caso utilizaremos a <b>Regressão Linear</b> para estimar os valores.</p></td>
 
 ### Construindo o Modelo 
 
@@ -117,9 +117,11 @@ modelo_v1 <- lm(gastos ~ ., data = treino)
 
 Podemos observar que o modelo criado apresenta bom desempenho utilizando os dados de treino (tomando como parâmetro o R-squared).
 
-![image](Imagens/IMG7.jpeg)
+<p align="center">
+  <img src="Imagens/IMG7.jpeg" width="500" height="300">
+</p>
 
-Obtendo os resíduos (diferenca entre os valores observados de uma variavel e seus valores previstos)
+Obtendo os resíduos (diferença entre os valores observados de uma variável e seus valores previstos)
 ```
 res <- residuals(modelo_v1)
 res <- as.data.frame(res)
@@ -132,11 +134,13 @@ ggplot(res, aes(res)) +
                  alpha = 0.5, fill = 'blue')
 ```
 
-![image](Imagens/IMG8.jpeg)
+<p align="center">
+  <img src="Imagens/IMG8.jpeg" width="600" height="300">
+</p>
 
-O Histograma acima nos mostra uma distribuicao normal, o que indica que a média entre os valores previstos e os valores observados é proximo de zero, o que é muito bom.
+<td><p align=justify>O Histograma acima nos mostra uma distribuicao normal, o que indica que a média entre os valores previstos e os valores observados é proximo de zero, o que é muito bom.</p></td>
 
-### Testando e avaliando o Modelo 
+### 📈 Testando e avaliando o Modelo 
 
 Fazendo as predições com os dados de teste
 ```
@@ -171,19 +175,21 @@ SST = sum( (mean(df$gastos) - resultados$Real)^2)
 R2 = 1 - (SSE/SST)
 ```
 
-![image](Imagens/IMG9.jpeg)
+<p align="center">
+  <img src="Imagens/IMG9.jpeg">
+</p>
 
-Analisando as métricas calculadas acima, **concluímos que o modelo apresenta bom desempenho nas predições**. No entanto, é importante sempre avaliar se a performance apresentada pode ser melhorada, é o que faremos na próxima etapa do projeto!
+<td><p align=justify>Analisando as métricas calculadas acima, <b>concluímos que o modelo apresenta bom desempenho nas predições</b>. No entanto, é importante sempre avaliar se a performance apresentada pode ser melhorada, é o que faremos na próxima etapa do projeto!</p></td>
 
-### Otimizando o Modelo
+### 🔧 Otimizando o Modelo
 
-Nesta etapa tentaremos otimizar a performance do Modelo construído. Antes de efetuar qualquer alteração precisamos analisar alguns pontos importantes referentes às nossas variáveis preditoras (atributos dos segurados).
+<td><p align=justify>Nesta etapa tentaremos otimizar a performance do Modelo construído. Antes de efetuar qualquer alteração precisamos analisar alguns pontos importantes referentes às nossas variáveis preditoras (atributos dos segurados).
 
 1 - Idade: É notório que os gastos com saúde tendem a aumentar de maneira desproporcional para a população mais velha. Logo, é interessante acrescentar uma variável que nos permita separar o impacto linear e não linear da idade nos gastos. Isso pode ser feito criando a variável 'idade²' (idade ao quadrado).
 
 2 - Índice de massa corporal (BMI): Outra observação a ser feita é com relação às pessoas obesas (BMI >= 30), a obesidade pode ser um preditor importante para os gastos com saúde, uma vez que as pessoas obesas tendem a desenvolver mais doenças. Neste caso podemos acrescentar uma variável 'bmi30' que indique se o segurado é obeso ou não (1 ou 0);
 
-3 - Uma vez que criamos a variável 'bmi30' que indica se o segurado é obeso ou não, e considerando que a variável 'fumante' é um forte preditor dos gastos (conforme análise da matriz de correlação na seção 'Familiarizando-se com o Dataset') podemos criar uma outra variável (cujo nome será 'fbmi30') que contemple os segurados que são obesos e ao mesmo tempo fumantes. Neste caso 'fbmi30' = bmi30*fumante, onde '1' indicará se as duas condições estão presentes e '0' se uma ou nenhuma das condições está presente.
+3 - Uma vez que criamos a variável 'bmi30' que indica se o segurado é obeso ou não, e considerando que a variável 'fumante' é um forte preditor dos gastos (conforme análise da matriz de correlação na seção 'Familiarizando-se com o Dataset') podemos criar uma outra variável (cujo nome será 'fbmi30') que contemple os segurados que são obesos e ao mesmo tempo fumantes. Neste caso 'fbmi30' = bmi30*fumante, onde '1' indicará se as duas condições estão presentes e '0' se uma ou nenhuma das condições está presente.</p></td>
 
 Acrescentando variáveis 'idade2', 'bmi30' e 'fbmi30' aos dados de treino e teste
 ```
@@ -200,7 +206,9 @@ Criando Modelo Otimizado
 modelo_v2 <- lm(gastos ~ ., data = treino)
 ```
 
-![image](Imagens/IMG10.jpeg)
+<p align="center">
+  <img src="Imagens/IMG10.jpeg" width="500" height="300">
+</p>
 
 Histograma dos resíduos
 ```
@@ -211,14 +219,16 @@ ggplot(res2, aes(res2)) +
                  alpha = 0.5, fill = 'blue')
 ```
 
-![image](Imagens/IMG11.jpeg)
+<p align="center">
+  <img src="Imagens/IMG11.jpeg" width="600" height="300">
+</p>
 
 Após repetir os passos de testagem e avaliação do Modelo Otimizado obtemos novamente as métricas:
 
 ![image](Imagens/IMG12.jpeg)
 
-Como o podemos observar o Modelo Otimizado apresentou significativa melhora no desempenho das predições.
+<b>Como o podemos observar o Modelo Otimizado apresentou significativa melhora no desempenho das predições.</b>
 
-### Conclusão e Considerações finais
+### 💡 Conclusão e Considerações finais
 
-Após passar pelas etapas de exploração e pré-processamento dos dados, construção, treinamento e otimização do Modelo Preditivo, concluímos nosso trabalho, tendo encontrado através de um modelo baseado em Regressão Linear a solução para o problema proposto, as próximas etapas passariam pela entrega dos resultados às equipes responsáveis pelo desenvolvimento e implantação de um sistema que receba novos dados, e baseada no modelo preditivo proposto, devolva as previsões em formato adequado. Tais informações seriam de extrema utilidade para os setores responsáveis pelo planejamento e gestão financeira da empresa. Obviamente que o modelo construído, mesmo otimizado, ainda passaria por ajustes finos e constantes melhorias, de modo a obter sempre o melhor desempenho.
+<td><p align=justify>Após passar pelas etapas de exploração e pré-processamento dos dados, construção, treinamento e otimização do Modelo Preditivo, concluímos nosso trabalho, tendo encontrado através de um modelo baseado em Regressão Linear a solução para o problema proposto, as próximas etapas passariam pela entrega dos resultados às equipes responsáveis pelo desenvolvimento e implantação de um sistema que receba novos dados, e baseada no modelo preditivo proposto, devolva as previsões em formato adequado. Tais informações seriam de extrema utilidade para os setores responsáveis pelo planejamento e gestão financeira da empresa. Obviamente que o modelo construído, mesmo otimizado, ainda passaria por ajustes finos e constantes melhorias, de modo a obter sempre o melhor desempenho.</p></td>

@@ -89,11 +89,11 @@ corrplot(data_cor, method = 'color')
 <td><p align=justify>Como podemos observar, existe correlação entre a variável "gastos" e as demais variáveis, sendo a correlação com a variável "fumante" a mais forte. <b>Isso confirma a hipótese inicial de que algumas características dos segurados podem influenciar em seu gasto anual com despesas médicas.</b></p></td>
 
 ## :rocket: Solução do Problema
-<td><p align=justify>Uma vez que concluímos as etapas de exploração dos dados e pré-processamento, confirmando ainda nossa hipótese inicial de que há correlação entre os atributos dos segurados e o seu gasto anual com despesas médicas, buscaremos agora uma solução para o problema inicialmente proposto: <b>estimar as despesas médias dos segurados com base nos seus atributos</b>. Para isso entendemos como necessária a construção de um modelo preditivo, neste caso utilizaremos a <b>Regressão Linear</b> para estimar os valores.</p></td>
+<td><p align=justify>Uma vez que concluímos as etapas de exploração dos dados e pré-processamento, confirmando ainda nossa hipótese inicial de que há correlação entre os atributos dos segurados e o seu gasto anual com despesas médicas, buscaremos agora uma solução para o problema inicialmente proposto: <b>estimar as despesas médias dos segurados com base nos seus atributos</b>. Para isso ocorrer, entendemos como necessária a construção de um modelo preditivo, neste caso utilizaremos a <b>Regressão Linear</b> para estimar os valores.</p></td>
 
 ### Construindo o Modelo 
 
-Criando as amostras de forma randomica
+Criando as amostras de forma randômica
 ```
 amostra <- sample.split(df$idade, SplitRatio = 0.70)
 ```
@@ -105,7 +105,7 @@ Criando dados de teste - 30% dos dados
 ```
 teste = subset(df, amostra == FALSE)
 ```
-Gerando o Modelo com dados de treino (Usando todos os atributos)
+Gerando o Modelo com dados de treino (usando todos os atributos)
 ```
 modelo_v1 <- lm(gastos ~ ., data = treino)
 ```
@@ -178,7 +178,7 @@ R2 = 1 - (SSE/SST)
 
 ### Otimizando o Modelo
 
-<td><p align=justify>Nesta etapa tentaremos otimizar a performance do Modelo construído. Antes de efetuar qualquer alteração precisamos analisar alguns pontos importantes referentes às nossas variáveis preditoras (atributos dos segurados).</p></td>
+<td><p align=justify>Nesta etapa tentaremos otimizar a performance do Modelo construído. Antes de efetuar qualquer alteração, precisamos analisar alguns pontos importantes referentes às nossas variáveis preditoras (atributos dos segurados).</p></td>
 
 <td><p align=justify>1 - Idade: É notório que os gastos com saúde tendem a aumentar de maneira desproporcional para a população mais velha. Logo, é interessante acrescentar uma variável que nos permita separar o impacto linear e não linear da idade nos gastos. Isso pode ser feito criando a variável 'idade²' (idade ao quadrado).</p></td>
 
@@ -226,7 +226,7 @@ Após repetir os passos de testagem e avaliação do Modelo Otimizado obtemos no
 
 ## :bulb: Conclusão e Considerações Finais
 
-<td><p align=justify>Após passar pelas etapas de exploração e pré-processamento dos dados, construção, treinamento e otimização do Modelo Preditivo, concluímos nosso trabalho, tendo encontrado através de um modelo baseado em Regressão Linear a solução para o problema proposto, as próximas etapas passariam pela entrega dos resultados às equipes responsáveis pelo desenvolvimento e implantação de um sistema que receba novos dados, e baseada no modelo preditivo proposto, devolva as previsões em formato adequado. Tais informações seriam de extrema utilidade para os setores responsáveis pelo planejamento e gestão financeira da empresa. Obviamente que o modelo construído, mesmo otimizado, ainda passaria por ajustes finos e constantes melhorias, de modo a obter sempre o melhor desempenho.</p></td>
+<td><p align=justify>Após passar pelas etapas de exploração e pré-processamento dos dados, construção, treinamento e otimização do Modelo Preditivo, concluímos nosso trabalho e encontramos, através de um modelo de Regressão Linear, a solução para o problema proposto. As próximas etapas passariam pela entrega dos resultados às equipes responsáveis pelo desenvolvimento e implantação de um sistema que receba dados de novos segurados, e baseada no modelo preditivo proposto, devolva as previsões das despesas médicas em formato adequado. Tais informações seriam de extrema utilidade para os setores responsáveis pelo planejamento e gestão financeira da empresa. Obviamente que o modelo construído, mesmo otimizado, ainda passaria por ajustes finos e constantes melhorias, de modo a obter sempre o melhor desempenho.</p></td>
 
 ## :superhero: Author
 <img src="https://avatars.githubusercontent.com/u/100307643?s=400&u=83c7fc83a58680d2adde544e8a5f3887de53f37a&v=4" height="100" width="100"> 

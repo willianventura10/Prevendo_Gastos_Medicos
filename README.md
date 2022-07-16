@@ -16,7 +16,7 @@
   * [Testando e avaliando o Modelo](#testando-e-avaliando-o-modelo)
   * [Otimizando o Modelo](#otimizando-o-modelo)
  * [Conclusão e Considerações Finais](#bulb-conclusão-e-considerações-finais)
-* [Author](#superhero-author)
+* [Autor](#superhero-autor)
 
 ## :computer: Sobre o Projeto
 <td><p align=justify>O objetivo deste projeto é praticar o conhecimento adquirido em Machine Learning. Para o desenvolvimento do projeto foi utilizada linguagem R (versão 4.2.0) juntamente com as bibliotecas 'dplyr' (versão 1.0.9), 'ggplot2' (versão 3.3.6), 'corrplot' (versão 0.92) e 'caTools' (versão 1.18.2).</p></td>
@@ -228,7 +228,7 @@ Após repetir os passos de testagem e avaliação do Modelo Otimizado obtemos no
 
 <td><p align=justify>Após passar pelas etapas de exploração e pré-processamento dos dados, construção, treinamento e otimização do Modelo Preditivo, concluímos nosso trabalho e encontramos, através de um modelo de Regressão Linear, a solução para o problema proposto. As próximas etapas passariam pela entrega dos resultados às equipes responsáveis pelo desenvolvimento e implantação de um sistema que receba dados de novos segurados, e baseada no modelo preditivo proposto, devolva as previsões das despesas médicas em formato adequado. Tais informações seriam de extrema utilidade para os setores responsáveis pelo planejamento e gestão financeira da empresa. Obviamente que o modelo construído, mesmo otimizado, ainda passaria por ajustes finos e constantes melhorias, de modo a obter sempre o melhor desempenho.</p></td>
 
-## :superhero: Author
+## :superhero: Autor
 <img src="https://avatars.githubusercontent.com/u/100307643?s=400&u=83c7fc83a58680d2adde544e8a5f3887de53f37a&v=4" height="100" width="100"> 
 <i>Willian Ventura</i>
 <div>

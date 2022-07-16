@@ -1,7 +1,7 @@
 <h1 align="middle">Prevendo Despesas Médicas 👩‍⚕️️🏥</h1>
 
 <p align="center">
-  <img src="Imagens/IMG1.jpg">
+  <img src="Imagens/IMG22.jpg">
 </p>
 
 # Índice
@@ -42,7 +42,7 @@ para criar tabelas que estabelecem os preços dos prêmios anuais maiores ou men
 <i>Primeiras linhas do 'dataset'</i>
 </p>
 <p align="center">
-  <img src="Imagens/IMG22.jpg">
+  <img src="Imagens/IMG22_.jpg">
 </p>
 <p align="center">
 <i>Histograma da variável 'gastos'</i>

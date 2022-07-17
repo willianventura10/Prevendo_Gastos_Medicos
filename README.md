@@ -8,6 +8,7 @@
 * [Sobre o Projeto](#computer-sobre-o-projeto)
 * [Descrição Geral do Problema](#gear-descrição-geral-do-problema)
 * [Familiarizando-se com o Dataset](#mag-familiarizando-se-com-o-dataset)
+  * [Carregando bibliotecas e dataset](#carregando-bibliotecas-e-dataset)
   * [Exploração inicial dos dados](#exploração-inicial-dos-dados)
   * [Pré-Processamento](#pré-processamento)
   * [Análise da Correlação entre as variáveis](#análise-da-correlação-entre-as-variáveis)
@@ -36,6 +37,16 @@ para criar tabelas que estabelecem os preços dos prêmios anuais maiores ou men
 ## :mag: Familiarizando-se com o Dataset
 <td><p align=justify>Para o desenvolvimento do Projeto foram utilizados dados fictícios de 1338 segurados, considerando as seguintes caracterísicas: idade, sexo, 
 índice de massa corporal (bmi), número de filhos, se é fumante ou não, e o total anual gasto com despesas médicas. Trabalharemos inicialmente com a hipótese de que algumas caractéricas dos segurados, como ser fumante e/ou possuir um alto índice de massa corporal estão diretamente vinculadas aos gastos anuais com saúde.</p></td>
+
+### Carregando bibliotecas e dataset
+```
+library(ggplot2)
+library(corrplot)
+library(caTools)
+```
+```
+df <- read.csv("despesas_medicas.csv")
+```
 
 ### Exploração inicial dos dados
 <p align="center">

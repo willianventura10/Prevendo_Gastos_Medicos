@@ -144,7 +144,7 @@ ggplot(res, aes(res)) +
   <img src="Imagens/IMG8.jpeg" width="600" height="300">
 </p>
 
-<td><p align=justify>O Histograma acima nos mostra uma distribuicao normal, o que indica que a média entre os valores previstos e os valores observados é proximo de zero, o que é muito bom.</p></td>
+<td><p align=justify>O Histograma acima nos mostra uma distribuicao normal, o que indica que a média entre os valores previstos e os valores observados é proximo de zero, o que é muito bom!</p></td>
 
 ### Testando e avaliando o Modelo 
 
